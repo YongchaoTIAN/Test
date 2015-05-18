@@ -6,7 +6,7 @@ DiNoDB is an interactive-speed query engine for ad-hoc queries on data stored in
 
 ### DiNoDB node
 
-DiNoDB node is a variant of PostgresSQL. To install DiNoDB node, simply execute command below on each machine: 
+DiNoDB node is a variant of PostgresSQL. To install and start DiNoDB node, simply execute command below on each machine: 
 
 ```bash installdinodbnode.sh```
 

@@ -46,4 +46,6 @@ To link data in HDFS to table in DiNoDB:
 
 ```python dinodbconf.py -r <tablename> -f <hdfsdirectory> -d <dbname>```
 
+Pay attention that after using MetaConnector linking data and table schema, DiNoDB database needs to be restarted by commands:
 
+```./gs-dbstop.sh -u admin -p secret -d dbname; ./gs-dbstart.sh -u admin -p secret -d dbname```

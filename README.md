@@ -16,8 +16,10 @@ DiNoDB client is based on Stado, which is an open source shared-nothing database
 
 ```bash installconfigstado.sh```
 
+
+
 ## MetaConnector
 
-MetaConnector is the bridge between DiNoDB and HDFS.
+MetaConnector is the bridge between DiNoDB and HDFS. It's written in Python script.
 
 

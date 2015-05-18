@@ -1,6 +1,6 @@
 # DiNoDB
 
-DiNoDB has three components: DiNoDB node, DiNoDB client and MetaConnector.
+DiNoDB is an interactive-speed query engine for ad-hoc queries on data stored in HDFS. DiNoDB has three components: DiNoDB node, DiNoDB client and MetaConnector.
 
 ## Install and Configuration
 

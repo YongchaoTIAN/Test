@@ -16,7 +16,7 @@ DiNoDB client is based on Stado, which is an open source shared-nothing database
 
 ```bash installconfigstado.sh```
 
-
+You need to config DiNoDB client.
 
 ## MetaConnector
 

@@ -1,6 +1,6 @@
 # DiNoDB
 
-DiNoDB is an interactive-speed query engine for ad-hoc queries on data stored in HDFS. DiNoDB has three components: DiNoDB node, DiNoDB client and MetaConnector.
+DiNoDB is an interactive-speed query engine for ad-hoc queries on data stored in HDFS. DiNoDB has three components: DiNoDB node, DiNoDB client and MetaConnector. Here we omit the instruction about how to set up a Hadoop cluster.
 
 ## Install and Configuration
 
@@ -8,7 +8,11 @@ DiNoDB is an interactive-speed query engine for ad-hoc queries on data stored in
 
 DiNoDB node is a variant of PostgresSQL. To install DiNoDB node, simply execute command below on each machine: 
 
-```bash installdinodb.sh```
+```bash installdinodbnode.sh```
+
+If user is starting from DiNoDB image where DiNoDB node is already installed, user can just start DiNoDB node by command:
+
+```bash startdinodbnode.sh```
 
 By default, three instances of DiNoDB node on each machine is started.
 
@@ -18,7 +22,9 @@ DiNoDB client is based on Stado, which is an open source shared-nothing database
 
 ```bash installconfigstado.sh```
 
-You need to configurate DiNoDB client by editing ```stado/config/stado.config```. Each DiNoDB node instance is a xdb.node.
+You need to configurate DiNoDB client by editing ```stado/config/stado.config```. Each DiNoDB node instance is a xdb.node. 
+
+If user is using DiNoDB image, only configuration is needed.
 
 ### MetaConnector
 

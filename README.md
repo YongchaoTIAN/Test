@@ -30,28 +30,36 @@ If user is using DiNoDB image, only configuration is needed.
 
 MetaConnector is the bridge between DiNoDB and HDFS. It's written in Python script and needs to install on each machine. You need to configurate it in ```metastore/metastore.conf``` where information of HDFS and DiNoDB node is provided. Remember to propagate configuration modification for each time.
 
+MetaConnector daemon process needs to be started in each DiNoDB node machine by command:
+
+```cd metastore; nohup python dinodbnode.py &```
+
 ## How to use
 
 After each component of DiNoDB is installed and configured, DiNoDB system is initialized by:
 
 ```cd stado/bin;./createmddb.sh -u admin -p secret```
 
+MetaConnector daemon process needs to be started in each DiNoDB node machine by command:
+
+```cd metastore; nohup python dinodbnode.py &```
+
 New database in DiNoDB can be created by:
 
 ```./gs-createdb.sh -u admin -p secret -d dbname -n <nodelist>```
+
+New table in DiNoDB can be created by:
+
+```./createtable.sh dbname tablename hdfspath <SQLfile>```
 
 DiNoDB SQL interface is started by:
 
 ```./gs-cmdline.sh -u admin -p secret -d dbname```
 
-Table schema in DiNoDB can be defined here. But to link tables in DiNoDB to data files stored in HDFS, user needs to use MetaConnector. First, daemon process of MetaConnector in each DiNoDB node machine should be started by command:
-
-```cd metastore; python dinodbnode.py &```
-
-To link data in HDFS to table in DiNoDB:
+To link data in HDFS to table in DiNoDB besides using createtable.sh script, the following command works for existing tables:
 
 ```python dinodbconf.py -r <tablename> -f <hdfsdirectory> -d <dbname>```
 
-Pay attention that after using MetaConnector linking data and table schema, DiNoDB database needs to be restarted by commands:
+Pay attention that after using MetaConnector linking data and table schema (by upper command) or new data is added in HDFS directory, DiNoDB database needs to be restarted by commands:
 
-```./gs-dbstop.sh -u admin -p secret -d dbname; ./gs-dbstart.sh -u admin -p secret -d dbname```
+```./refreshtable.sh dbname tablename hdfspath```
